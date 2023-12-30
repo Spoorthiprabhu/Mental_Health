@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home page</title>
+  <style>
+    body {
+      font-family:Georgia, 'Times New Roman', Times, serif ;
+      margin: 0;
+      padding: 0;
+     box-shadow: 2px solid black;
+     background-image: url();
+     background-size: 1000px;
+    }
+    h1{
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: left;
+    }
+    .ball {
+      position: 300px;
+      width: 30px;
+      height: 30px;
+      background-color: #3498db;
+      border-radius: 100%;
+      animation: bounce 2s infinite alternate;
+    }
+
+    .ball:nth-child(2) {
+      animation-delay: 0.5s;
+      background-color: #e74c3c;
+    }
+
+    .ball:nth-child(3) {
+      animation-delay: 1s;
+      background-color: #2ecc71;
+    }
+
+    .ball:nth-child(4) {
+      animation-delay: 1.5s;
+      background-color: #f39c12;
+    }
+
+    .ball:nth-child(5) {
+      animation-delay: 2s;
+      background-color: #9b59b6;
+    }
+
+    /* Add more .ball rules as needed */
+
+    @keyframes bounce {
+      100%, 200%, 5000%, 80%, 100% {
+        transform: translateY(0px);
+      }
+      40% {
+        transform: translateY(-100px);
+      }
+      60% {
+        transform: translateY(-50px);
+      }
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Specify your background image or color here */
+      background: linear-gradient(25deg,);
+      z-index: -1;
+    }
+
+    /* Animation */
+    @keyframes moveBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    header::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Specify your background image or color here */
+      background: linear-gradient(25deg,);
+      z-index: -1;
+    }
+
+    /* Animation */
+    @keyframes moveBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+
+
+    header {
+      background-color:#B06161;
+      background: linear-gradient(#89B9AD,#132043);
+      color:white;
+      
+      padding: 10px;
+      text-shadow: 5px 4px 4px blanchedalmond;
+      text-align: center;
+      font-size: 25px;
+    }
+
+    nav {
+      background-color:#79A;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      margin: 0 10px;
+      font-size: 20px;
+      text-align: right;
+    }
+    #log{
+    text-align:right;
+      background-color:#A0D8B3;
+    }
+    
+    button{
+    background-color:#00337C;
+    color:white;
+    cursor:pointer;
+    border:1px solid black;
+    padding:10px;
+    height:40px;
+    width: 100px;
+    margin-left:1350px;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+
+    
+    }
+    button:hover{
+        background-color: gray;
+        width:100px;
+        height:40px;
+    }
+    .text-content{
+  position: absolute;
+  top: 33%;
+  left: 7%;
+  z-index: 12;
+  color:black;
+  font-size: 50px;
+}
+header .text-content .text{
+  font-size: 27px;
+  color: #f1f2f7b5;
+}
+header .text-content .name{
+color: #959bb3;
+ font-size: 75px;
+ font-weight: 600;
+ margin: -20px 0 0 -3px;
+}
+header .text-content .job{
+ color: #acb0bc;
+ font-size: 40px;
+ margin: 5px 0;
+ margin-top: -4px;
+ display: flex;
+}
+.text-content .typing-text{
+  margin-left: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid #E7B10A;
+  animation: typing 5s steps(15) infinite;
+}
+@keyframes typing{
+  0%{
+    width: 0ch;
+  }
+  50%{
+    width: 15ch;
+  }
+  100%{
+    width: 0ch;
+  }
+}
+.text-content .job .one{
+  color: #C70039;
+}
+.text-content .job .two{
+  color: #115c06;
+}
+.text-content.text{
+  color: #959bb3;
+}
+.progress-value {
+  display: none;
+}
+.progress:hover .progress-value {
+  display: inline-block;
+}
+
+    section {
+      padding: 20px;
+    }
+    .circle-container {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .circle-image {
+      width: 100%;
+      float: right;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .circle-container
+    {
+text-align: right;
+float: right;
+position:absolute;
+right:0%;
+    }
+    #image{
+      width:40px;
+      height:40px;
+      border-radius: 100px;
+    }
+    #up
+    {
+      text-align: right;
+
+    }
+    #front{
+      width:700px;
+      height:500px;
+      padding:100px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MindWell
+      <img src="images/m.jpg" id="image">
+      
+    </h1>
+  </header><br>
+  <center>
+  <button  id="up" type="signup" style="text-align: center; background-color: #3C6255 ;">
+    <a href="signup.html" style="text-align: center;color:white;font-size: 20px;">SignUp</a>
+  </button>
+</center>
+   
+      
+    
+  
+ <div class="home" >
+  
+</div>
+
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  
+
+  <div class="text-content">
+    <div class="text">Hello, </div>
+    <div class="name">WELCome TO!!!</div>
+    <div class="job">
+      <span>HealthSCore</span>
+      <div class="typing-text">
+        
+        <span class="one">Feel Free </span>
+        <span class="two"> To Share☺☺......</span>
+        
+      </div>
+     
+        
+   
+
+  <script>
+    // You can add JavaScript code here if needed
+  </script>
+
+</body>
+</html>

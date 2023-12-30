@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatic Breath Cycle with Music</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url(https://images.unsplash.com/photo-1588087587155-91fa81793a60?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+      background-size: cover;
+    }
+
+    #breath-container {
+      width: 200px;
+      height: 200px;
+      background-color: #392467;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    button {
+      color: white;
+      background-color: #a367b1;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d3a0e7;
+    }
+
+    #toggleButton {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body><nav>
+  <button onclick="toggleTheme()" >
+    <a href ="games.html">Home page</a> </button>
+  </nav>
+  <div id="breath-container">
+    <div>Breathe</div>
+  </div><br><br>
+
+  <button id="toggleButton" onclick="toggleBreathCycle()">Start</button>
+
+  <audio id="breathSound" loop>
+    <source src="meditation-pad-61609.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    let isBreathCycleRunning = false;
+    let breathCycleTimeout;
+
+    function toggleBreathCycle() {
+      if (isBreathCycleRunning) {
+        stopBreathCycle();
+      } else {
+        startBreathCycle();
+      }
+    }
+
+    function startBreathCycle() {
+      isBreathCycleRunning = true;
+      document.getElementById('toggleButton').innerText = 'Stop';
+
+      // Play the audio
+      document.getElementById('breathSound').play();
+
+      function breathCycle() {
+        // Inhale
+        document.getElementById('breath-container').innerText = 'Inhale';
+        breathCycleTimeout = setTimeout(() => {
+          // Hold breath
+          document.getElementById('breath-container').innerText = 'Hold';
+        }, 4000);
+
+        setTimeout(() => {
+          // Exhale
+          document.getElementById('breath-container').innerText = 'Exhale';
+        }, 11000);
+
+        setTimeout(() => {
+          // Next breath cycle
+          if (isBreathCycleRunning) {
+            document.getElementById('breath-container').innerText = 'Breathe'; // Reset text
+            breathCycle();
+          }
+        }, 19000); // Total cycle time (inhale + hold + exhale)
+      }
+
+      // Start the breath cycle
+      breathCycle();
+    }
+
+    function stopBreathCycle() {
+      isBreathCycleRunning = false;
+      document.getElementById('toggleButton').innerText = 'Start';
+      clearTimeout(breathCycleTimeout);
+      document.getElementById('breath-container').innerText = 'Breathe';
+
+      // Pause the audio
+      document.getElementById('breathSound').pause();
+    }
+  </script>
+</body>
+</html>

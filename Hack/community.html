@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three Vertical Divs</title>
+  <style>
+    *{
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    h2{
+        text-shadow: 3px -3px 2px gray;
+    }
+    body{
+        background-color: #f3f1f1cc;
+        background: url(images/5.jpg);
+    }
+    p{
+        text-align: justify;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+    }
+    
+        button{
+    background-color: #BB9CC0;
+    cursor:pointer;
+    border:1px solid black;
+    padding:3px;
+    margin:3px;
+    border-radius: 20px;
+    width:200px;
+    height:40px;
+
+    
+    }
+    button:hover{
+        background-color: gray;
+        width:100px;
+        height:45px;
+    }
+    
+    .div1{
+        width:18em;
+        font-family:cursive;
+        background:linear-gradient(#FFB7B7,#F7E1AE);
+        height:32em;
+        background-color:#FFE382;
+        box-shadow: 5px 5px 25px #0000005f;
+        padding:10px 30px;
+        border-radius:50px;
+        font-size: 20px;
+       
+        
+    }
+    .div2{
+        width:18em;
+        font-family:cursive;
+        background:linear-gradient(#FFB7B7,#F7E1AE);
+        height:32em;
+        background-color:#9BB8CD;
+        box-shadow: 5px 5px 25px #0000005f;
+        padding:10px 30px;
+        border-radius:50px;
+        font-size: 20px;
+    
+    }
+    .div3{
+        width:18em;
+        font-family:cursive;
+        background:linear-gradient(#FFB7B7,#F7E1AE);
+        height:32em;
+        background-color:#C3E2C2;
+        box-shadow: 5px 5px 25px #0000005f;
+        padding:10px 30px;
+        border-radius:50px;
+        font-size: 20px;
+       
+
+    }
+
+
+
+    @media(max-width:1200px){
+        .container{
+            height:100%;
+            flex-direction:column;
+        }
+        .div1,.div2,.div3{
+            max-width:80%;
+            padding:30px;
+        }
+    }
+    .container {
+      display: flex;
+      flex-grow: 1;
+      height: 100vh;
+      gap:4em;
+      padding:0 40px;
+    }
+
+    .box {
+      flex: 1;
+      border: 1px solid #FFE382;
+      margin: 10px;
+      padding: 20px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    /* Add more styles as needed */
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <center><div class="div1">
+        <h2>Games</h2>
+        <img src="images/mind.jpg">
+    <p>
+        Mental stress-avoiding games provide a digital escape, offering a therapeutic experience to alleviate daily pressures. Through calming visuals, engaging activities, and relaxation techniques, these games promote mindfulness and emotional well-being, serving as a valuable resource for those seeking moments of tranquility and stress relief in a virtual environment. 
+        
+    </p>
+    <button type="readmore">
+        <a href="games.html">Play Now</a>
+      </button>
+</div>
+</center>
+    <center><div class="div2">
+        <h2>Community</h2>
+        <img src="images/comm.jpg">
+    <p>Mental health communities create supportive spaces where individuals share experiences, coping strategies, and encouragement. Online forums, groups, and platforms facilitate connection, reducing isolation and stigma. These communities foster understanding, empathy, and resilience, offering valuable resources for those navigating mental health challenges and a sense of belonging.
+    </p>
+    <button type="readmore">
+        <a href="person.html">Read More</a>
+      </button></div></center>
+    <center><div class="div3">
+        <h2> Sucess Stories</h2>
+        <img src="images/int.jpeg">
+        <p>Success stories related to mental stress inspire hope and resilience. Individuals overcoming challenges share their journeys, offering insights into coping strategies and personal growth. These narratives encourage others to seek help, promote destigmatization, and emphasize that recovery and well-being are achievable goals, fostering a positive outlook on mental health.</p>
+        <button type="readmore">
+            <a href="suc.html">Read More</a>
+          </button>
+      </div></center>
+  </div>
+
+</body>
+</html>

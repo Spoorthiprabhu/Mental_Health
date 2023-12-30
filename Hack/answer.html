@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="h.css">
+    <title>MedCare</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>MedCare</title>
+    <style>
+        .progress-bar {
+            background-color: #5F0F40;
+        }
+
+        .div1,
+        .div2,
+        .div3 {
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 4px 4px 4px 4px black;
+            background-color: #f3cdd9;
+            margin-right: 20px; /* Added margin between boxes */
+            margin-bottom: 20px; /* Added margin at the bottom */
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                height: 50%;
+                flex-direction: column;
+            }
+
+            .div1,
+            .div2,
+            .div3 {
+                max-width: 80%;
+                padding: 30px;
+                margin-right: 0; /* Remove margin between boxes for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body style="background-color: #BB9CC0;">
+
+    <nav class="navbar navbar-expand-lg bg-light py-3 fixed-top" style="background-color: rgb(154, 83, 156);">
+        <div class="container" style=" background-color: #3e3947">
+          <p style="color: rgb(231, 207, 245); font-size: 40px; font-weight: 30px;">MindWell</p>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navmenu">
+            <!-- ms-auto gives a flex margin/padding -->
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link active border-bottom border-primary" style="color: #f3cdd9;">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="healthscore.html" class="nav-link" style="color: #f3cdd9;" >Test</a> 
+              </li>
+              <li class="nav-item">
+                <a href="myindex.html" class="nav-link" style="color: #f3cdd9;">Doctor</a>
+              </li>
+              <li class="nav-item">
+                <a href="community.html" class="nav-link" style="color: #f3cdd9;">Additional info</a>
+              </li>
+              <li class="nav-item">
+                <a href="logout.html" class="nav-link" style="color: #f3cdd9;">Logout</a>
+              </li>
+              
+              
+            </ul>
+          </div>
+        </div>    
+      </nav>
+<br><br><br>
+
+<div class="container d-flex justify-content-center"> <!-- Added d-flex and justify-content-center to make boxes appear side by side -->
+    <div class="div1">
+        <h1 style="text-align: center;">0-50</h1>
+        <p style="text-align: center;font-family: cursive; font-size: 15px;">Congradulations!!! You are fit and fine. Please continue the same patience in all situations. You can enjoy our games
+            The more tranquil a man becomes, the greater is his success, his influence, his power for good. The calmness of mind is one of the beautiful jewels of wisdom.</p>
+        <button id="games" style="width: 200px; height:50px ; margin: 10px 100px 20px 100px ; border-radius: 10px; background-color: #A367B1; color: white; font-weight: bold;font-size: large;">Games</button>
+    </div>
+    
+    <div class="div2" style="text-align: center;font-family: cursive;font-size: 15px;">
+        <h1>51-75</h1>
+        <p>The truth is that stress doesn’t come from your boss, your kids, your spouse, traffic jams, health challenges, or other circumstances. It comes from your thoughts about your circumstances
+            Be calm.Breath is the power behind all things…. I breathe in and know that good things will happen.
+
+        </p>
+        <button id="ws" style="width: 200px; height:50px ; margin: 10px 100px 20px 100px ; border-radius: 10px; background-color: #A367B1; color: white; font-weight: bold;font-size: large;">Experts</button>
+    </div>
+    <div class="div3" style="text-align: center; font-family: cursive;font-size: 15px;">
+        <h1>76-100</h1>
+        <p>Don't be stressed looking your stress level..😃You don't have to control your thoughts. You just have to stop letting them control you.
+            Not everything that weighs you down is yours to carry.You don't have to see the whole staircase, just take the first step.
+
+        </p>
+        <button id="doc" style="width: 200px; height:50px ; margin: 10px 100px 20px 100px ; border-radius: 10px; background-color: #A367B1; color: white; font-weight: bold;font-size: large;">Doctors</button>
+    </div>
+</div>
+
+
+<!-- Your existing HTML code -->
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

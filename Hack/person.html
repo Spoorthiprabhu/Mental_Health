@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three Vertical Divs</title>
+  <style>
+    
+    h2{
+        text-shadow: 2px 2px 2px black;
+    }
+    body{
+        background-color: #f3f1f1cc;
+    }
+    p{
+        text-align: justify;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    
+        button{
+    background-color: rgb(200, 136, 80);
+    cursor:pointer;
+    border:1px solid black;
+    padding:3px;
+    margin:3px;
+    border-radius: 10px;
+    width:100px;
+    height:40px;
+
+    
+    }
+    button:hover{
+        background-color: gray;
+        width:100px;
+        height:45px;
+    }
+    
+    .div1{
+        width:20em;
+        font-family:cursive;
+
+        height:30em;
+        background:linear-gradient(#A0C49D,#164B60);
+        box-shadow: 5px 5px 25px #0000005f;
+        padding:10px 30px;
+        border-radius:10px;
+        font-size: 20px;
+        
+    }
+    .div2{
+        width:20em;
+        font-family:cursive;
+
+        height:30em;
+        background:linear-gradient(#A0C49D,#164B60);
+        box-shadow: 5px 5px 25px #0000005f;
+        padding:10px 30px;
+        border-radius:10px;
+        font-size: 20px;
+        
+    }
+    .div3{
+        width:20em;
+        font-family:cursive;
+
+        height:30em;
+        background:linear-gradient(#A0C49D,#164B60);
+        box-shadow: 5px 5px 25px #0000005f;
+        padding:10px 30px;
+        border-radius:10px;
+        font-size: 20px;
+        
+    }
+    @media(max-width:1200px){
+        .container{
+            height:100%;
+            flex-direction:column;
+        }
+        .div1,.div2,.div3{
+            max-width:80%;
+            padding:30px;
+        }
+    }
+    .container {
+      display: flex;
+      flex-grow: 1;
+      height: 100vh;
+      gap:4em;
+      padding:0 40px;
+    }
+
+    .box {
+      flex: 1;
+      border: 1px solid #DBCC95;
+      margin: 10px;
+      padding: 20px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    /* Add more styles as needed */
+
+  </style>
+</head>
+<body><center>
+    <button onclick="toggleTheme()">
+        <a href ="home.html">Home</a> </button>
+        </center>
+</header>
+
+  <div class="container">
+    <center><div class="div1">
+        <br><br>
+        
+        <img src="images/san.jpg">
+        <h2>Sandeep Maheshwari</h2>
+    <p>
+        Sandeep Maheshwari is a renowned Indian motivational speaker, entrepreneur, and influencer. His insightful talks on life, success, and motivation have garnered widespread acclaim. As the founder of ImagesBazaar, he empowers millions through free life-changing seminars, fostering a positive mindset and inspiring individuals to achieve their goals with passion and resilience.
+    </p>
+    
+</div>
+</center>
+    <center><div class="div2">
+        <br><br>
+        <img src="images/ash.jpg">
+        <h2>Shawn Achor</h2>
+    <p>Shawn Achor is a positive psychology advocate, bestselling author, and speaker renowned for his expertise in happiness and well-being. His research explores the correlation between positivity, success, and productivity, offering practical strategies to enhance happiness and reduce stress. Achor's work emphasizes the transformative power of a positive mindset in various aspects of life.
+    </p>
+    
+    </center>
+    <center><div class="div3">
+        <br>
+        <img src="images/hae.jpg">
+        <h2>Louise Hae</h2>
+        <p>  Louise Hay, a pioneering self-help author and motivational speaker, is renowned for her influential work in affirmations and healing. Her teachings emphasize self-love, positive thought patterns,& the mind-body connection. Hay's transformative insights inspire individuals to overcome challenges and embrace the potential for healing through affirmations and self-empowerment.</p>
+        
+        
+      </div></center>
+  </div>
+
+</body>
+</html>

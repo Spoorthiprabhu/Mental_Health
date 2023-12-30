@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Matching Game</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    #memory-game {
+      display: grid;
+      grid-template-columns: repeat(4, 80px);
+      grid-gap: 10px;
+      perspective: 800px;
+      transform-style: preserve-3d;
+      margin-top: 20px;
+    }
+
+    .memory-card {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.5s, background-color 0.3s;
+    }
+
+    .color-1 { background-color: #ff5252; } /* Red */
+    .color-2 { background-color: #64b5f6; } /* Blue */
+    .color-3 { background-color: #ffeb3b; } /* Yellow */
+    .color-4 { background-color: #4caf50; } /* Green */
+    .color-5 { background-color: #9575cd; } /* Purple */
+    .color-6 { background-color: #ff9800; } /* Orange */
+    .color-7 { background-color: #607d8b; } /* Grey */
+    .color-8 { background-color: #e91e63; } /* Pink */
+
+    .memory-card:hover {
+      background-color: #cfd8dc; /* Light grey on hover */
+    }
+
+    .memory-card.flipped {
+      transform: rotateY(360deg);
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-right: 10px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #timer {
+      font-size: 18px;
+      color: #555;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    #moves {
+      font-size: 18px;
+      color: #555;
+      position: absolute;
+      top: 40px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Memory Matching Game</h1>
+  <div>
+    <button onclick="initializeGame('easy')">Easy</button>
+    <button onclick="initializeGame('medium')">Medium</button>
+    <button onclick="initializeGame('difficult')">Difficult</button>
+    <button onclick="resetGame()">Restart Game</button>
+  </div>
+  <div id="memory-game"></div>
+  <div id="timer">Time: 0s</div>
+  <div id="moves">Moves: 0</div>
+
+  <script>
+    const difficultyLevels = {
+      easy: 4,
+      medium: 8,
+      difficult: 16
+    };
+
+    let cards = [];
+    let flippedCards = [];
+    let moves = 0;
+    let matchedPairs = 0;
+    let timer;
+    let timerSeconds = 0;
+    let currentDifficulty;
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function createCard(value, index) {
+      const card = document.createElement('div');
+      card.classList.add('memory-card');
+      card.classList.add(`color-${index + 1}`);
+      card.dataset.value = value;
+      card.innerText = '?';
+      card.addEventListener('click', flipCard);
+      return card;
+    }
+
+    function flipCard() {
+      if (flippedCards.length < 2 && !flippedCards.includes(this) && !this.classList.contains('flipped')) {
+        this.innerText = this.dataset.value;
+        this.classList.add('flipped');
+        flippedCards.push(this);
+
+        if (flippedCards.length === 2) {
+          setTimeout(checkMatch, 500);
+          moves++;
+          updateMoves();
+        }
+      }
+    }
+
+    function checkMatch() {
+      const [card1, card2] = flippedCards;
+      if (card1.dataset.value === card2.dataset.value) {
+        matchedPairs++;
+        if (matchedPairs === cards.length / 2) {
+          clearInterval(timer);
+          alert(`Congratulations! You matched all pairs in ${timerSeconds} seconds with ${moves} moves.`);
+          resetGame();
+        }
+      } else {
+        setTimeout(() => {
+          card1.innerText = card2.innerText = '?';
+          card1.classList.remove('flipped');
+          card2.classList.remove('flipped');
+        }, 500);
+      }
+
+      flippedCards = [];
+    }
+
+    function updateMoves() {
+      document.getElementById('moves').innerText = `Moves: ${moves}`;
+    }
+
+    function updateTimer() {
+      document.getElementById('timer').innerText = `Time: ${timerSeconds}s`;
+      timerSeconds++;
+    }
+
+    function resetGame() {
+      moves = 0;
+      matchedPairs = 0;
+      flippedCards = [];
+      clearInterval(timer);
+      initializeGame(currentDifficulty);
+    }
+
+    function initializeGame(difficulty) {
+      currentDifficulty = difficulty || currentDifficulty;
+      const values = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '1', '2', '3', '4', '5', '6', '7', '8'];
+      cards = values.slice(0, difficultyLevels[currentDifficulty]);
+      cards = [...cards, ...cards];
+      shuffleArray(cards);
+
+      const memoryGame = document.getElementById('memory-game');
+      memoryGame.innerHTML = '';
+
+      for (let i = 0; i < cards.length; i++) {
+        const card = createCard(cards[i], i);
+        memoryGame.appendChild(card);
+      }
+
+      timerSeconds = 0;
+      timer = setInterval(updateTimer, 1000);
+    }
+
+    initializeGame('easy'); // Default to easy difficulty
+  </script>
+</body>
+</html>

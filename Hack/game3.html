@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble Popping Game</title>
+  <link rel="stylesheet" href="game3.css">
+</head>
+<body>
+
+  <audio id="bubblePop" src="bubble_pop.mp3"></audio>
+  <audio id="shoot" src="shoot.mp3"></audio>
+
+  <div id="game-container">
+    <div id="score">Score: <span id="score-value">0</span></div>
+    <div id="difficulty">
+      <label for="difficulty-select">Difficulty:</label>
+      <select id="difficulty-select" onchange="changeDifficulty()">
+        <option value="easy" selected>Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+    <div id="shooter"></div>
+  </div>
+
+  <div id="controls" class="bottom-controls">
+    <button onclick="startGame()" id="start-btn">Start</button>
+    <button onclick="stopGame()" id="stop-btn" disabled>Stop</button>
+    <button onclick="resetGame()" id="reset-btn">Reset</button>
+  </div>
+
+  <script src="game3.js"></script>
+</body>
+</html>
